@@ -1,13 +1,13 @@
 {
   "name": "KYSS",
   "description": "KYSS tool for LCMSMS proteomics data",
-  "launch_path": "/kyssproject/",
+  "launch_path": "/",
   "icons": {
     "128": "/kyssproject/icon-128.png"
   },
   "developer": {
     "name": "KYSS project",
-    "url": "http://kyssproject.github.io/kyssproject/"
+    "url": "https://github.com/kyssproject/kyssproject.github.io/wiki"
   },
   "default_locale": "en"
 }
