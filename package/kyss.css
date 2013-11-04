@@ -1,0 +1,598 @@
+/*
+
+	Gerard Such Sanmartín
+
+    This file is part of KYSS package.
+
+    KYSS is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    KYSS is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with KYSS. If not, see <http://www.gnu.org/licenses/>.
+
+	http://www.gnu.org/licenses/gpl.html
+
+*/
+
+
+/*...................................................*/
+
+/* general */
+body {margin:auto;font:10px Verdana;color:#000;}
+.empty {clear:both;}
+.hide {display:none;}
+
+
+/* main structure */
+#wrapper				{width:1211px;margin:5px 5px;overflow:visible;}
+.items					{height:100%;}
+
+.top_panel1
+	{height:100%;width:650px;overflow:hidden;border-radius:12px;float:none;opacity:1;
+	background:#eee;margin: 2% 10%;display:none;}
+.top_panel1	.top_panel1_container
+	{height:100%;width:100%;border-radius:5px;background-color:#EEE;margin-bottom:20px;
+	position:relative;float:left;}
+.top_panel_functions
+	{height:100%;width:100%;border-radius:12px;float:none;opacity:1;
+	background:#eee;margin: 20px 0px;}
+.top_panel_functions .top_panel1_container
+	{height:100%;width:100%;border-radius:5px;background-color:#EEE;
+	position:relative;float:left;}
+.top_panel_functions .top_panel1_container_graphs
+	{height:100%;width:100%;border-radius:5px;background-color:#EEE;margin-bottom:20px;padding:10px 0px;
+	position:relative;float:left;display:none;}
+
+/* delete
+.left_initial_panel
+	{
+	background:#eee;
+	width:250px;
+	}
+*/
+
+/* START panels from the first html page */
+.panel_description
+	{margin:2px 5px;padding:5px;position:relative;width:auto;}
+.panel_description .title
+	{font-weight:bold;background-color:#fff;}
+.panel_description .point
+	{margin-bottom:3px;}
+.panel_description .point .files_list
+	{width:250px;height:100px;overflow-y:scroll;border:1px solid #999;}
+.panel_description .point .files_list span
+	{display:block;}
+.panel_help
+	{height:60px;margin:2px 5px;padding:5px;position:relative;}
+.panel_help.initial_panel
+	{height:auto;padding:5px 5px 10px 5px;border-radius:8px;
+	font-weight:bold;display:block;}
+.panel_help.initial_panel2
+	{height:auto;padding:0px 5px 10px 5px;}
+.panel_help.initial_panel .item,
+.files_added.prot .item,
+.files_added.pep .item
+	{display:inline-block;border-radius:4px;margin:2px;padding:4px;
+	font-size:16px;color:#fff;font-family:Arial;font-weight:normal;letter-spacing:-1px;line-height:13px;}
+.panel_help.initial_panel .item.prot,
+.files_added.prot .item.prot
+	{background:-moz-linear-gradient(top,#25A6E1 0%,#188BC0 100%);border:1px solid #1A87B9;}
+.panel_help.initial_panel .item.pep,
+.files_added.pep .item.pep
+	{background:-moz-linear-gradient(top,#AEE329 0%,#A1D128 100%);border:1px solid #84B015;}
+.panel_help.initial_panel .ref_position
+	{display:inline-block;position:relative;}
+.panel_help.initial_panel .item.prot.item2,
+.panel_help.initial_panel .item.prot.item3,
+.panel_help.initial_panel .item.pep.item2,
+.panel_help.initial_panel .item.pep.item3
+	{top:3px;left:5px;position:absolute;}
+.panel_help.initial_panel .item.prot.item22,
+.panel_help.initial_panel .item.pep.item22,
+.panel_help.initial_panel .item.prot.item33,
+.panel_help.initial_panel .item.pep.item33
+	{top:6px;left:10px;position:absolute;}
+.panel_help.initial_panel .item.prot.item3,
+.panel_help.initial_panel .item.pep.item3,
+.panel_help.initial_panel .item.prot.item33,
+.panel_help.initial_panel .item.pep.item33
+	{background:#ccc;border:1px solid #aaa;} /* not background-color since the inherited one prevails */
+
+.panel_help .group						{float:left;margin-right:2px;}
+.panel_help .group.text					{margin-right:0px;font-weight:bold;float:none;}
+.panel_help .group.text .title			{background-color:#fff;}
+.panel_help .group div					{float:none;}
+.panel_help .button						{margin:2px 1px;width:8px;height:8px;border:2px solid #fff;border-radius:8px;cursor:pointer;}
+.panel_help .button.selected			{background:#F94626;}
+.panel_help .button:hover				{background:#888;}
+.panel_help .button.selected:hover		{background:#888;}
+.panel_help .no_button					{margin:2px 1px;width:12px;height:12px;}
+/* END panels from the first html page */
+
+
+/* START panels of multiple graphs */
+.panel
+	{height:60px;margin:2px 5px;padding:5px;position:relative;width:auto;display:inline-block;}
+.panel.graphs
+	{padding:0px 2px;border:2px solid #fff;border-radius:8px;height:108px;}
+.panel.graphs .title
+	{font-weight:bold;background:#ccc;}
+.panel.graphs.peptides_and_LC
+	{padding:5px 0px 0px 5px;}
+.panel.graphs.MS
+	{padding:5px 0px 0px 5px;}
+.panel.graphs.proteins
+	{padding:5px 0px 0px 5px;}
+.panel.graphs.select_files
+	{padding:5px 0px 0px 5px;}
+.panel.proteins_comparison
+	{padding:5px 0px 0px 5px;}
+.panel.graphs.plasma_analisys
+	{padding:5px 0px 0px 5px;}
+
+.panel .group						{float:left;margin-right:2px;}
+.panel .group.text					{margin-right:0px;}
+.panel .group.text.labels			{margin-right:10px;}
+.panel .group .header				{padding-left:2px;}
+.panel .group.text .text			{font-weight:bold;height:15px;} /* important to align with buttons, value not logical :( */
+.panel .group div					{float:none;}
+.panel .button						{margin:2px 1px;width:8px;height:8px;border:2px solid #fff;border-radius:8px;cursor:pointer;}
+.panel .button.selected				{background:#F94626;}
+.panel .button:hover				{background:#888;}
+.panel .button.selected:hover		{background:#888;}
+.panel .no_button					{margin:2px 1px;width:12px;height:12px;}
+
+.panel.graphs:hover					{}
+.panel.graphs .group.text			{float:left;}
+.panel.graphs .group .text			{height:15px;} /* important to align with buttons, value not logical :( */
+.panel.graphs .group .text .button	{float:left;clear:both;}
+
+.panel.graphs .button				{margin:2px 1px;width:8px;height:8px;
+									border:2px solid #fff;border-radius:8px;cursor:pointer;}
+.panel.graphs .button.mod			{margin:2px 1px;width:8px;height:8px;background:#777;
+									border:2px solid #fff;border-radius:8px;cursor:pointer;margin-right:5px;}
+.panel.graphs .button.mod2			{margin:2px 1px;width:8px;height:8px;background:#DEAA1B;
+									border:2px solid #fff;border-radius:8px;cursor:pointer;margin-right:5px;}
+/*
+.panel.graphs .button.mod3			{margin:2px 1px;width:8px;height:8px;background:#DEAA1B;
+									border:2px solid #fff;border-radius:8px;cursor:default;margin-right:5px;}
+*/
+.panel.graphs .button.mod3			{visibility:hidden;}
+.panel.graphs .button:hover			{background:#888;}
+.panel.graphs .trigger .help_icon:before
+	{background: none repeat scroll 0 0 #2385BA;
+	border-radius:16px;
+	color:#FFFFFF;
+	content:"?";
+	font-size:10px;
+	font-weight:bold;
+	line-height:10px;
+	text-align:center;
+	height:11px;
+	width:11px;
+	padding:1px;
+	display:inline-block;
+	left:3px;
+	margin-top:0px;
+	cursor:pointer;}
+.panel.graphs .trigger
+	{width:auto;display:inline;
+	}
+.panel.graphs .trigger .help_text
+	{visibility:hidden;height:0px;
+	left:50px;width:400px;border:2px solid #000;border-radius:8px;background:#eee;position:absolute;z-index:1;padding:5px;}
+.panel.graphs .trigger:hover .help_text
+	{visibility:visible;height:auto;}
+.panel.graphs .trigger .help_text .help_title
+	{font-weight:bold;width:100px;display:block;}
+.panel.graphs .trigger .help_text .help_desc
+	{font-weight:normal;width:250px;margin:-14px 0px 0px 100px;display:block;}
+
+/* END panels of multiple graphs */
+
+
+#graphs							{position:absolute;left:150px;top:250px;width:850px;height:650px;padding:30px;
+								background-color:#fff;z-index:1;border-radius:50px;overflow:visible;border:2px solid #000;}
+#graphs:hover					{cursor:pointer;}
+#close							{position:absolute;left:150px;top:250px;width:50px;height:50px;
+								background-color:#2C8FAB;z-index:1;border-radius:50px;overflow:visible;border:2px solid #000;}
+#close:hover					{cursor:pointer;}
+
+
+/* HTML 1st PAGE */
+#progress_drag					{width:600px;display:block;border:0px solid #777;border-radius:10px;
+								margin:2% 10%;padding:2%;text-align:center;font:20px Verdana;color:#fff;background-color:#bbb;}
+.files_added					{width:600px;display:block;border-radius:10px;
+								margin:auto 10%;padding:0px;color:#000;clear:both;}
+#progress_reading				{height:90px;width:400px;display:none;margin:0px auto;border-radius:15px;background:#eee;}
+#progress_converting_csv		{height:90px;width:400px;display:none;margin:0px auto;border-radius:15px;background:#eee;}
+#progress_converting_xml		{height:90px;width:400px;display:none;margin:0px auto;border-radius:15px;background:#eee;}
+
+/* KYSS LOGO */
+#progress_drag .panel_logo		{width:600px;height:150px;float:left;margin:2px 5px;padding:5px;position:relative;float:none;}
+#progress_drag .logo_logo1		{width:160px;border-radius:80px 60px 60px 20px;
+								margin:0px 0px 0px 0px;opacity:1;float:left;z-index:9;height:120px;position:relative;
+								background:-moz-linear-gradient(top,#25A6E1 0%,#188BC0 100%);border:1px solid #1A87B9;}
+#progress_drag .logo_eye1		{width:10px;height:10px;border-radius:5px;
+								margin:0px 0px 0px 0px;opacity:1;z-index:9;position:absolute;left:118px;top:22px;
+								background:-moz-linear-gradient(top,#fff 0%,#eee 100%);border:1px solid #000;}
+#progress_drag .logo_eye2		{width:10px;height:10px;border-radius:5px;
+								margin:0px 0px 0px 0px;opacity:1;z-index:9;position:absolute;left:130px;top:20px;
+								background:-moz-linear-gradient(top,#fff 0%,#eee 100%);border:1px solid #000;}
+#progress_drag .logo_pupil1		{width:2px;height:2px;border-radius:5px;
+								margin:0px 0px 0px 0px;opacity:1;z-index:9;position:absolute;left:123px;top:25px;
+								background:#000;border:1px solid #000;}
+#progress_drag .logo_pupil2		{width:2px;height:2px;border-radius:5px;
+								margin:0px 0px 0px 0px;opacity:1;z-index:9;position:absolute;left:135px;top:25px;
+								background:#000;border:1px solid #000;}
+#progress_drag .logo_text		{color:#000;font:bold 120px Arial;-moz-transform-origin:left bottom;font-family:Arial;
+								letter-spacing:-15px;opacity:1;margin:0px 0px 0px 0px;z-index:10;
+								top:10px;left:160px;position:absolute;}
+#progress_drag .logo_text2		{color:#000;font:bold 20px Arial;font-family:Arial;
+								letter-spacing:-2px;z-index:10;
+								top:10px;left:168px;position:absolute;}
+/* /KYSS LOGO */
+
+#progress_drag .filling			{font-size:20px;text-align:center;color:#fff;padding:20px;margin:20px;border-radius:15px;}
+#progress_drag .ending			{font-size:20px;text-align:center;color:#fff;padding:20px;margin:20px auto;border-radius:5px;background:#ccc;
+								width:60%;}
+#progress_drag .ending:hover		{background:#000;cursor:pointer;}
+#progress_reading .filling			{font-size:20px;text-align:center;color:#fff;height:100%;margin:20px;
+									border-radius:15px;background:#ccc;}
+#progress_converting_csv .filling	{font-size:20px;text-align:center;color:#fff;height:100%;margin:20px;
+									border-radius:15px;background:#ccc;}
+#progress_converting_xml .filling	{font-size:20px;text-align:center;color:#fff;height:100%;margin:20px;
+									border-radius:15px;background:#ccc;}
+#help							{width:600px;display:inline-block;float:left;clear:both;
+								margin:2% 10%;padding:2%;font:10px Verdana;color:#888;}
+#help .clicks					{cursor:pointer;width:auto;display:inline-block;float:left;clear:both;}
+#help .clicks:hover				{color:#89C8E0;}
+#help .step						{width:auto;display:inline-block;float:left;clear:both;}
+#help a						{text-decoration:none;color:inherit;}
+
+/* /HTML 1st PAGE */
+
+
+.top_panel3				{height:100%;width:100%;border-radius:5px;float:none;opacity:1;overflow:hidden;}
+.top_panel3 .header		{height:80px;width:100%;background:#FFAC40;padding-left:10px;padding-bottom:5px;}
+.top_panel3 .summary	{height:80px;width:130px;color:#fff;font:bold 15px Arial;padding-top:5px;float:left;}
+.top_panel3 .status		{color:#fff;font:normal 11px Arial;margin-top:-10px;margin-left:5px;display:inline-block;}
+#container_pp			{display:none;}
+#panel_proteins			{margin: 0px 0px 0px 0px;padding: 0px 0px 5px 0px;background:#eee;float:left;overflow:hidden;width:100%;}
+
+
+
+/* proteins and peptides */
+.hit						{width:100%;float:none;clear:both;padding:0px;font:10px Verdana;background:#eee;overflow:hidden;}
+.hit:hover					{background-color:#89C8E0;}
+.hit div					{float:left;margin-right:0px;}
+.protein_0					{height:24px;width:100%;font:normal 10px Verdana;border-top:1px solid #fff;
+							border-bottom:1px solid #fff;line-height:90%;background:#BFCFDB;color:#fff;}
+.protein_0 a				{text-decoration:none;color:inherit;}
+.protein_rest				{/*height:14px;*/} /* put in the xsl file to be able to change it individually through javascript */
+.protein_rest a				{text-decoration:none;color:inherit;}
+
+/* border-left needed to avoid the same weird behaviour of elements dissapearing when passing over!
+even with the same precautions taken before, here is not working :( */
+.container_prot_n			{height:100%;width:25px;padding-left:2px;font-size:9px;overflow:hidden;border-left:1px solid #eee;}
+.container_prot_n.protein_data_0	{border-left:0px solid #fff;}
+.prot_n						{width:100%;color:#ccc;}
+.prot_n.protein_data_0		{color:#fff;}
+.container_prot_chk			{height:100%;width:30px;text-align:center;overflow:hidden;} /* color is necessary to put here if I want to change it */
+.prot_chk					{height:10px;width:100%;}
+.prot_chk input				{height:10px;width:10px;margin:0px auto;}
+.container_graphs_chk		{width:16px;height:16px;margin:0;padding:0;}
+.keratins_chk				{height:15px;width:15px;margin:0;padding:0;}
+.prot_graphs_chk			{height:100%;width:100%;}
+.prot_graphs_chk input		{height:16px;width:16px;margin:0px;padding:0px 2px;}
+.container_prot_peptides	{height:100%;width:30px;}
+.prot_peptides				{width:100%;text-align:center;}
+.prot_peptides a			{font-weight:bold;}
+.container_prot_analysis	{height:14px;width:120px;} /* height is needed because it becomes 0 when the father goes to 100%, not good */
+.prot_analysis				{width:100%;}
+
+/* do not specify complete path because there is 3 different paths to cover! */
+.run_1						{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#FFD700;}
+.run_2						{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#FFC125;}
+.run_3						{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#FFA500;}
+.run_4						{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#CD8500;}
+.run_5						{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#ED9121;}
+.run_6						{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#EE7621;}
+.run_7						{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#EE4000;}
+.run_8						{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#FF6347;}
+.run_9						{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#EED5D2;}
+.run_10						{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#BC8F8F;}
+.run_11						{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#8B8989;}
+.run_12						{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#CDC9C9;}
+.run_13						{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#F08080;}
+.run_14						{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#CD5555;}
+.run_15						{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#FF4040;}
+.run_16						{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#CD3333;}
+.run_17						{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#8E388E;}
+.run_18						{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#7171C6;}
+.run_19						{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#7D9EC0;}
+.run_20						{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#C5C1AA;}
+
+
+.prot_analysis .run_1		{position:absolute;margin-left:0px;}
+.prot_analysis .run_2		{position:absolute;margin-left:10px;}
+.prot_analysis .run_3		{position:absolute;margin-left:20px;}
+.prot_analysis .run_4		{position:absolute;margin-left:30px;}
+.prot_analysis .run_5		{position:absolute;margin-left:40px;}
+.prot_analysis .run_6		{position:absolute;margin-left:50px;}
+.prot_analysis .run_7		{position:absolute;margin-left:60px;}
+.prot_analysis .run_8		{position:absolute;margin-left:70px;}
+.prot_analysis .run_9		{position:absolute;margin-left:80px;}
+.prot_analysis .run_10		{position:absolute;margin-left:90px;}
+.prot_analysis .run_11		{position:absolute;margin-left:100px;}
+.prot_analysis .run_12		{position:absolute;margin-left:110px;}
+.prot_analysis .run_13		{position:absolute;margin-left:120px;}
+.prot_analysis .run_14		{position:absolute;margin-left:130px;}
+.prot_analysis .run_15		{position:absolute;margin-left:140px;}
+.prot_analysis .run_16		{position:absolute;margin-left:150px;}
+.prot_analysis .run_17		{position:absolute;margin-left:160px;}
+.prot_analysis .run_18		{position:absolute;margin-left:170px;}
+.prot_analysis .run_19		{position:absolute;margin-left:180px;}
+.prot_analysis .run_20		{position:absolute;margin-left:190px;}
+
+.container_prot_uniprot
+	{height:100%;width:60px;padding-left:1px;overflow:hidden;} /* overflow critical to avoid weird behaviour */
+.container_prot_uniprot_remarked
+	{height:100%;width:60px;padding-left:1px;overflow:hidden;background:#ccc;} /* overflow critical to avoid weird behaviour */
+.container_prot_uniprot_remarked_low
+	{height:100%;width:60px;padding-left:1px;overflow:hidden;background:#FF6600;} /* overflow critical to avoid weird behaviour */
+.container_prot_uniprot_remarked_moderate
+	{height:100%;width:60px;padding-left:1px;overflow:hidden;background:#FF9900;} /* overflow critical to avoid weird behaviour */
+.container_prot_uniprot_remarked_moderate2
+	{height:100%;width:60px;padding-left:1px;overflow:hidden;background:#FFD900;} /* overflow critical to avoid weird behaviour */
+.container_prot_uniprot_remarked_high
+	{height:100%;width:60px;padding-left:1px;overflow:hidden;background:#FFCC00;} /* overflow critical to avoid weird behaviour */
+.prot_uniprot
+	{width:100%;}
+
+
+#panel_proteins .trigger
+	{
+/*	width:auto;display:inline;*/
+	}
+#panel_proteins .trigger .remarked_text
+	{visibility:hidden;height:0px;
+	left:245px;margin-top:8px;width:300px;border:2px solid #000;border-radius:8px;background:#eee;position:absolute;z-index:1;padding:5px;}
+#panel_proteins .trigger:hover .remarked_text
+	{visibility:visible;height:auto;}
+#panel_proteins .trigger .remarked_text .remarked_title
+	{font-weight:bold;width:100%;display:block;}
+#panel_proteins .trigger .remarked_text .remarked_desc
+	{font-weight:normal;width:100%;display:block;}
+#panel_proteins .trigger .remarked_text .remarked_desc div
+	{display:block;}
+#panel_proteins .trigger .remarked_text .remarked_desc a
+	{color:#349DBA;}
+
+
+
+.container_prot_desc		{height:100%;width:400px;padding-left:1px;border-left:1px solid #fff;overflow:hidden;}
+.prot_desc					{width:100%;padding-left:1px;}
+.container_prot_vars		{height:100%;border-left:1px solid #fff;padding-left:1px;}
+.prot_vars					{height:100%;width:100%;}
+.prot_AA					{height:100%;width:40px;overflow:hidden;}
+.prot_pI					{height:100%;width:40px;overflow:hidden;}
+.prot_mass					{height:100%;width:30px;overflow:hidden;}
+.container_prot_file_vars	{height:100%;width:420px;border-left:1px solid #fff;padding-left:1px;}
+.prot_file_vars				{height:100%;width:100%;}
+.prot_analysis_plus			{width:20px;}
+.prot_analysis_data			{width:20px;}
+.prot_score					{height:100%;width:70px;overflow:hidden;}
+.prot_area					{height:100%;width:50px;overflow:hidden;}
+.prot_area_percentage		{height:100%;width:60px;overflow:hidden;}
+.prot_cover					{height:100%;width:60px;overflow:hidden;}
+.prot_num					{height:100%;width:30px;overflow:hidden;}
+.pep_num					{height:100%;width:30px;overflow:hidden;}
+.pep_unique					{height:100%;width:30px;overflow:hidden;}
+.prot_mods					{height:100%;width:40px;overflow:hidden;}
+.protein_data_0				{height:24px;}
+
+
+/* absolutely critical, weird behaviour with the float in the normal and selected panels (without this) */
+/*	critical not to put width:100%; to adjust width later on */
+/* display property set in the document individually */
+.peptide_hits	{width:100%;clear:both;border-bottom:1px solid #DBDBDB;}
+.hit_pep		{width:100%;float:none;clear:both;padding:0px;padding-left:10px;font:10px Verdana;
+				overflow:hidden;background-color:#FAFAFA;}
+.hit_pep div	{float:left;margin-right:0px;}
+.peptide_hit0_	{height:14px;width:100%;font:normal 10px Arial;border-top:1px solid #DBDBDB;border-bottom:1px solid #DBDBDB;
+				line-height:90%;padding-top:2px;background:#FAFAFA;color:#000;}
+.peptides_separated			{width:100%;}
+.peptides_separated:hover	{background:#CADCE0;}
+
+.pep_seq				{width:100%;overflow:hidden;font-weight:bold;}
+.pep_confidence			{width:15px;}
+.pep_confidence .peptide_High	{margin-top:3px;width:8px;height:8px;border-radius:4px;background:#BCEE68;}
+.pep_confidence .peptide_Middle	{margin-top:3px;width:8px;height:8px;border-radius:4px;background:#FFA500;}
+.pep_confidence .peptide_Low	{margin-top:3px;width:8px;height:8px;border-radius:4px;background:#FF4500;}
+.pep_rank				{width:15px;}
+.pep_score				{width:40px;}
+.pep_qvalue				{width:30px; overflow:hidden;}
+.pep_pep				{width:30px; overflow:hidden;}
+.pep_peptides_matched		{width:80px;}
+.pep_decoy_peptides_matched	{width:80px;}
+.pep_delta_mass			{width:80px;}
+.pep_area				{width:50px;}
+.pep_intensity			{width:60px;}
+.pep_iit				{width:30px;}
+.pep_protein_groups		{width:25px;}
+.pep_protein_related	{width:25px;}
+.pep_missed				{width:25px;}
+.pep_modifications		{width:80px;}
+.pep_activation			{width:30px;}
+.pep_charge				{width:30px;}
+.pep_mz					{width:80px;}
+.pep_exp_mz				{width:80px;}
+.pep_rt					{width:40px;}
+.pep_scan				{width:50px;}
+.pep_file_run_0			{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#0000FF;}
+.pep_file_run_1			{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#191970;}
+.pep_file_run_2			{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#3D59AB;}
+.pep_file_run_3			{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#27408B;}
+.pep_file_run_4			{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#B0C4DE;}
+.pep_file_run_5			{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#CAE1FF;}
+.pep_file_run_6			{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#6E7B8B;}
+.pep_file_run_7			{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#1E90FF;}
+.pep_file_run_8			{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#4682B4;}
+.pep_file_run_9			{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#BFEFFF;}
+.pep_file_run_10		{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#48D1CC;}
+.pep_file_run_11		{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#E0EEE0;}
+.pep_file_run_12		{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#838B83;}
+.pep_file_run_13		{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#B4EEB4;}
+.pep_file_run_14		{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#CAFF70;}
+.pep_file_run_15		{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#BCEE68;}
+.pep_file_run_16		{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#A2CD5A;}
+.pep_file_run_17		{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#6B8E23;}
+.pep_file_run_18		{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#9ACD32;}
+.pep_file_run_19		{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#698B22;}
+.pep_file_run_20		{margin-top:3px;width:10px;height:10px;border-radius:4px;opacity:0.8;background:#F5F5DC;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---- ---- ---- ---- ---- ---- ---- */
+
+.icon				{position: relative;margin:3px;}
+.icon-plus-circle	{background-color:#fff;border-radius:5px;width:12px;height:12px;position:absolute;top:0;left:0;}
+.icon-plus-line-1	{background-color:#616161;width:9px;height:2px;border-radius:1px;position:absolute;top:4px;left:1px;}
+.icon-plus-line-2	{background-color:#616161;width:2px;height:9px;border-radius:1px;position:absolute;top:1px;left:4px;}
+.icon-plus-circle:hover,.icon-plus-line-1:hover,.icon-plus-line-2:hover	{background-color:#FF6E26;}
+.icon_modifications	{background:#777;border-radius:2px;width:10px;height:10px;text-align:center;vertical-align:middle;color:#fff;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---- ---- ---- ---- ---- ---- ---- */
+
+
+
+
+
+/* ---- ---- ---- ---- ---- ---- ---- */
+
+/*	-moz-transition: all 1s cubic-bezier(0.68,0.00,0.22,1.00);
+/*	-moz-transition: width 1s cubic-bezier(0.68,0.00,0.22,1.00); apparently, the property "color" does not work separatedly */
+
+
+
+
+
+
+
+
+/* to be able to be reached by JS, need to be the last!! */
+/* ---- ---- ---- ---- ---- ---- ---- */
+#control_panel_container_prot_chk {}
+#control_panel_container_prot_peptides {}
+#control_panel_container_prot_analysis {}
+#control_panel_container_prot_analysis_data {}
+#control_panel_container_prot_gene {}
+#control_panel_container_prot_ncbinr {}
+#control_panel_container_prot_others {}
+#control_panel_container_prot_contaminants {}
+#control_panel_container_prot_reverse {}
+#control_panel_container_prot_searches {}
+#control_panel_container_prot_uniprot {}
+#control_panel_container_prot_desc {}
+#control_panel_container_prot_search_0 {}
+#control_panel_container_prot_search_1 {}
+#control_panel_container_prot_vars {}
+#control_panel_container_prot_file_vars {}
+
+#control_panel_container_and_search_0 {}
+#control_panel_container_and_search_1 {}
+#control_panel_container_or_search_0 {}
+#control_panel_container_or_search_1 {}
+#control_panel_container_not_search_0 {}
+#control_panel_container_not_search_1 {}
+#control_panel_container_prevail_0 {}
+#control_panel_container_prevail_1 {}
+#control_panel_container_prevail_2 {}
+#control_panel_container_prevail_3 {}
+#control_panel_container_prevail_4 {}
+#control_panel_container_prevail_5 {}
+#control_panel_container_prevail_6 {}
+#control_panel_container_prevail_7 {}
+#control_panel_container_prevail_8 {}
+#control_panel_container_prevail_9 {}
+#control_panel_container_and_0 {}
+#control_panel_container_and_1 {}
+#control_panel_container_and_2 {}
+#control_panel_container_and_3 {}
+#control_panel_container_and_4 {}
+#control_panel_container_and_5 {}
+#control_panel_container_and_6 {}
+#control_panel_container_and_7 {}
+#control_panel_container_and_8 {}
+#control_panel_container_and_9 {}
+#control_panel_container_or_0 {}
+#control_panel_container_or_1 {}
+#control_panel_container_or_2 {}
+#control_panel_container_or_3 {}
+#control_panel_container_or_4 {}
+#control_panel_container_or_5 {}
+#control_panel_container_or_6 {}
+#control_panel_container_or_7 {}
+#control_panel_container_or_8 {}
+#control_panel_container_or_9 {}
+#control_panel_container_not_0 {}
+#control_panel_container_not_1 {}
+#control_panel_container_not_2 {}
+#control_panel_container_not_3 {}
+#control_panel_container_not_4 {}
+#control_panel_container_not_5 {}
+#control_panel_container_not_6 {}
+#control_panel_container_not_7 {}
+#control_panel_container_not_8 {}
+#control_panel_container_not_9 {}
+
+#progress_drag {}
+#progress_reading {}
+#progress_converting_csv {}
+#progress_converting_xml {}
+#progress_merging {}
+#progress_codifying {}
+#progress_hiding {}
+#progress_stats {}
+
