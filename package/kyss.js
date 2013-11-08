@@ -1365,9 +1365,17 @@ brain.prototype.single_graph = function(divided,graph_type,data1,data2,data3,dat
 		else
 			{
 			if (data1 == null)
-				{graph_data.push({x:data_x,y:parseFloat(data_4)});}
+				{
+				if (!isNaN(data_4))
+					{
+//console.log(data_x+'  '+data_4)
+					graph_data.push({x:data_x,y:parseFloat(data_4)});
+					}
+				}
 			else
-				{graph_data.push({x:data_x,y:parseFloat(data_4),a:data1[i],b:data2[i]});}
+				{
+				graph_data.push({x:data_x,y:parseFloat(data_4),a:data1[i],b:data2[i]});
+				}
 			}
 		}
 
