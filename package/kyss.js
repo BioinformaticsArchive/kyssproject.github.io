@@ -19,7 +19,7 @@
 
 	http://www.gnu.org/licenses/gpl.html
 
-	Project KYSS last version (2013-10)
+	Project KYSS last version (2013-11)
 	Project KYSS v0.9 (2013-06)
 	Project KYSS v0.8 (2013-04)
 	Project KYSS v0.7 (2013-01)
