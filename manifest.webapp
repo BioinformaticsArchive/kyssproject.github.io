@@ -3,7 +3,7 @@
   "description": "KYSS tool for LCMSMS proteomics data",
   "launch_path": "/",
   "icons": {
-    "128": "/kyssproject/icon-128.png"
+    "128": "/icon-128.png"
   },
   "developer": {
     "name": "KYSS project",
