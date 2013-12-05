@@ -254,7 +254,7 @@ body {margin:auto;font:10px Verdana;color:#000;}
 								margin:2% 10%;padding:2%;font:10px Verdana;color:#888;}
 #help .neutral					{width:auto;display:inline-block;clear:both;float:left;}
 #help .wiki_link					{width:auto;display:inline-block;clear:both;cursor:pointer;color:#89C8E0;}
-#help .clicks					{cursor:pointer;width:auto;display:inline-block;float:left;clear:both;}
+#help .clicks					{width:auto;display:inline-block;clear:both;float:left;cursor:pointer;}
 #help .clicks:hover				{color:#89C8E0;}
 #help .step						{width:auto;display:inline-block;float:left;clear:both;}
 #help a						{text-decoration:none;color:inherit;}
